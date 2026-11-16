@@ -1673,3 +1673,186 @@ p {
         justify-content: center;
     }
 }
+
+
+/* ========================================
+   QR-КОД НА ТИТУЛЬНОМУ СЛАЙДІ
+======================================== */
+
+.presentation-qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 25px;
+    padding: 10px 16px;
+
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    transition: var(--transition);
+}
+
+.presentation-qr:hover {
+    border-color: rgba(66, 226, 204, 0.4);
+    background: rgba(66, 226, 204, 0.06);
+}
+
+.presentation-qr img {
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.presentation-qr-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.presentation-qr-text strong {
+    color: var(--accent);
+    font-size: 13px;
+}
+
+.presentation-qr-text span {
+    color: var(--text-muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+    .presentation-qr {
+        margin-top: 18px;
+    }
+
+    .presentation-qr img {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+
+
+/* ========================================
+   SLIDE 8 — QR-КОД
+======================================== */
+
+.qr-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.qr-slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+}
+
+.qr-slide .section-label {
+    margin-bottom: 22px;
+}
+
+.qr-slide h2 {
+    max-width: 750px;
+    margin-bottom: 18px;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.15;
+}
+
+.qr-description {
+    max-width: 550px;
+    margin: 0 auto 28px;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.qr-code-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 0 55px rgba(66, 226, 204, 0.12);
+    transition: var(--transition);
+}
+
+.qr-code-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 70px rgba(66, 226, 204, 0.22);
+}
+
+.qr-code-image {
+    display: block;
+    width: 230px;
+    height: 230px;
+    object-fit: contain;
+}
+
+.qr-hint {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.qr-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.qr-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 45px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 700px) {
+    .qr-slide {
+        justify-content: center;
+    }
+
+    .qr-slide h2 {
+        font-size: 32px;
+    }
+
+    .qr-description {
+        font-size: 14px;
+    }
+
+    .qr-code-image {
+        width: 190px;
+        height: 190px;
+    }
+
+    .qr-footer {
+        margin-top: 28px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}
