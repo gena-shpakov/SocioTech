@@ -1,0 +1,615 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #101619;
+    --bg-secondary: #172125;
+    --card: #1c292e;
+    --card-hover: #24343a;
+    --text: #edf5f4;
+    --text-muted: #9aacab;
+    --accent: #39d6c3;
+    --accent-dark: #20a999;
+    --accent-glow: rgba(57, 214, 195, 0.18);
+    --border: rgba(255, 255, 255, 0.09);
+
+    --font-main: 'Manrope', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(57, 214, 195, 0.07), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family: var(--font-main);
+    overflow: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* Основна структура */
+
+.presentation {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 70px 9% 110px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(35px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0.5s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.slide-content {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.slide-number {
+    position: absolute;
+    top: 35px;
+    right: 9%;
+    color: var(--text-muted);
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* Заголовки */
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+}
+
+h1 {
+    font-size: clamp(42px, 6vw, 82px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(30px, 4vw, 48px);
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Перший слайд */
+
+.title-slide {
+    text-align: center;
+    align-items: center;
+}
+
+.title-slide h1 {
+    max-width: 1000px;
+    margin-bottom: 25px;
+}
+
+.title-slide .subtitle {
+    font-size: 20px;
+    max-width: 700px;
+}
+
+.title-line {
+    width: 90px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 10px;
+    margin: 30px auto;
+    box-shadow: 0 0 25px var(--accent-glow);
+}
+
+.author {
+    margin-top: 55px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Загальні картки */
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.topic-card,
+.thinker-card,
+.impact-block,
+.sign-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px;
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.topic-card:hover,
+.thinker-card:hover,
+.impact-block:hover,
+.sign-card:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover);
+    border-color: rgba(57, 214, 195, 0.4);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+
+.topic-card h3,
+.sign-card h3 {
+    color: var(--text);
+}
+
+.topic-card p,
+.sign-card p {
+    font-size: 14px;
+}
+
+/* Слайд 2 — поняття */
+
+.definition-box {
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    background: rgba(57, 214, 195, 0.07);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 14px 14px 0;
+}
+
+.definition-box p {
+    color: var(--text);
+    font-size: 17px;
+}
+
+.signs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.sign-card {
+    padding: 20px;
+}
+
+.sign-number {
+    display: inline-flex;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-weight: 800;
+}
+
+.sign-card h3 {
+    font-size: 17px;
+}
+
+.sign-card p {
+    font-size: 13px;
+}
+
+.example-box {
+    margin-top: 22px;
+    padding: 20px 25px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.example-box strong {
+    color: var(--accent);
+}
+
+/* Слайд 3 — Бердяєв */
+
+.thinker-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.thinker-visual {
+    min-height: 350px;
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at center, rgba(57, 214, 195, 0.2), transparent 65%),
+        var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+}
+
+.thinker-symbol {
+    font-size: 90px;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.thinker-visual p {
+    font-size: 13px;
+}
+
+.thinker-info p {
+    margin-bottom: 15px;
+}
+
+.thinker-facts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.fact {
+    padding: 15px;
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.fact strong {
+    display: block;
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+
+.fact span {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* Слайд 4 — сучасність */
+
+.modern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.modern-card {
+    min-height: 260px;
+    padding: 25px;
+    border-radius: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.modern-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+}
+
+.modern-icon {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.modern-card h3 {
+    color: var(--text);
+}
+
+.modern-card p {
+    font-size: 14px;
+}
+
+/* Слайд 5 — вплив */
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.impact-block h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.impact-block ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.impact-block li {
+    position: relative;
+    padding: 9px 0 9px 25px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.impact-block li::before {
+    content: "•";
+    position: absolute;
+    left: 5px;
+    color: var(--accent);
+    font-size: 20px;
+}
+
+/* Слайд 6 — висновок */
+
+.conclusion-slide {
+    text-align: center;
+    align-items: center;
+}
+
+.conclusion-slide h2 {
+    max-width: 900px;
+    line-height: 1.25;
+}
+
+.conclusion-text {
+    max-width: 750px;
+    font-size: 18px;
+}
+
+.conclusion-highlight {
+    margin-top: 35px;
+    padding: 22px 35px;
+    border: 1px solid rgba(57, 214, 195, 0.4);
+    border-radius: 15px;
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+/* Навігація */
+
+.presentation-controls {
+    position: fixed;
+    z-index: 10;
+    bottom: 25px;
+    left: 9%;
+    right: 9%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.control-button {
+    padding: 12px 22px;
+    color: var(--text);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.control-button:hover:not(:disabled) {
+    color: var(--bg);
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.control-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    max-width: 500px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 5px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--accent);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+#slideCounter {
+    min-width: 55px;
+    color: var(--text-muted);
+    font-size: 13px;
+    text-align: right;
+}
+
+/* Адаптивність */
+
+@media (max-width: 1000px) {
+    .slide {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .signs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modern-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .thinker-layout {
+        grid-template-columns: 1fr 1.3fr;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        overflow: hidden;
+    }
+
+    .slide {
+        padding: 55px 6% 100px;
+        overflow-y: auto;
+        justify-content: flex-start;
+    }
+
+    .slide-number {
+        top: 20px;
+        right: 6%;
+    }
+
+    .title-slide {
+        justify-content: center;
+    }
+
+    .content-grid,
+    .signs-grid,
+    .modern-grid,
+    .impact-grid,
+    .thinker-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .thinker-visual {
+        min-height: 200px;
+    }
+
+    .thinker-symbol {
+        font-size: 60px;
+    }
+
+    .thinker-facts {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .presentation-controls {
+        left: 5%;
+        right: 5%;
+        bottom: 15px;
+        gap: 10px;
+    }
+
+    .control-button {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .progress-container {
+        gap: 8px;
+    }
+
+    #slideCounter {
+        font-size: 11px;
+        min-width: 42px;
+    }
+
+    .author {
+        margin-top: 30px;
+    }
+}
+
+@media (max-height: 650px) and (min-width: 701px) {
+    .slide {
+        padding-top: 45px;
+        padding-bottom: 80px;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    .sign-card,
+    .topic-card,
+    .modern-card,
+    .impact-block {
+        padding: 15px;
+    }
+
+    .modern-card {
+        min-height: 200px;
+    }
+}
