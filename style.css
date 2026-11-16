@@ -223,13 +223,25 @@ p {
     margin-bottom: 18px;
 }
 
+
 /* ========================================
    4. ПЕРШИЙ СЛАЙД
 ======================================== */
 
 .title-slide {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
+}
+
+.title-slide .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .title-slide h1 {
@@ -253,12 +265,12 @@ p {
     color: #a9bac6;
     font-size: 19px;
     line-height: 1.7;
+    text-align: center;
 }
 
 .title-line {
     width: 85px;
     height: 3px;
-
     margin: 32px auto;
 
     background: linear-gradient(
@@ -272,11 +284,23 @@ p {
 }
 
 .author {
-    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 45px;
 
     color: #8296a4;
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 1px;
+}
+
+.author strong {
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
 }
 
 /* ========================================
@@ -742,41 +766,58 @@ p {
     box-shadow: 0 0 10px var(--accent-glow);
 }
 
+
 /* ========================================
-   10. СЛАЙД 6 — ВИСНОВОК
+   ОСТАННІЙ СЛАЙД — ВИСНОВОК
 ======================================== */
 
 .conclusion-slide {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 100%;
+
     text-align: center;
+}
+
+.conclusion-slide .section-label {
+    justify-content: center;
+    margin-bottom: 25px;
 }
 
 .conclusion-slide h2 {
     max-width: 950px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
     font-size: clamp(36px, 5vw, 62px);
     line-height: 1.2;
+    text-align: center;
 }
 
 .conclusion-text {
     max-width: 740px;
-    font-size: 17px;
-    line-height: 1.8;
+    margin: 0 auto;
+
+    color: #a9bac6;
+    font-size: 18px;
+    line-height: 1.9;
+    text-align: center;
 }
 
 .conclusion-highlight {
-    position: relative;
-
     max-width: 800px;
-    margin-top: 35px;
-    padding: 24px 35px;
+    margin: 35px auto 0;
+    padding: 25px 35px;
 
     color: var(--accent);
     font-family: var(--font-heading);
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 600;
-    line-height: 1.5;
+    line-height: 1.6;
+    text-align: center;
 
     background: linear-gradient(
         100deg,
@@ -789,6 +830,14 @@ p {
 
     box-shadow: 0 0 35px rgba(66, 226, 204, 0.04);
 }
+
+.conclusion-slide .author {
+    margin-top: 40px;
+    color: var(--text-muted);
+    font-size: 16px;
+    text-align: center;
+}
+
 
 /* ========================================
    11. НИЖНЯ ПАНЕЛЬ НАВІГАЦІЇ
@@ -1450,5 +1499,177 @@ p {
 
     .modern-main-image {
         min-height: 280px;
+    }
+}
+
+
+
+/* =====================================
+   СЛАЙД 6 — МОЖЛИВОСТІ ТА РИЗИКИ
+===================================== */
+
+.impact-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr;
+    gap: 35px;
+    align-items: stretch;
+    margin-top: 25px;
+}
+
+.impact-main {
+    min-width: 0;
+}
+
+.impact-intro {
+    max-width: 680px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.impact-image-wrapper {
+    width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.impact-image {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.impact-image-wrapper:hover .impact-image {
+    transform: scale(1.04);
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 850px) {
+    .impact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-image-wrapper,
+    .impact-image {
+        min-height: 280px;
+    }
+}
+
+
+/* ========================================
+   СЛАЙД 2 — ВИЗНАЧЕННЯ МАШИННОГО ФЕТИШИЗМУ
+======================================== */
+
+.definition-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.4fr;
+    gap: 35px;
+    align-items: stretch;
+    margin-top: 25px;
+}
+
+.definition-image-wrapper {
+    position: relative;
+    min-height: 550px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #171717;
+}
+
+.definition-image {
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.definition-image-wrapper:hover .definition-image {
+    transform: scale(1.04);
+}
+
+.image-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 35px 18px 18px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.8)
+    );
+}
+
+.definition-content {
+    min-width: 0;
+}
+
+.definition-content .definition-box {
+    margin-top: 0;
+}
+
+.definition-content .points-heading {
+    margin-top: 24px;
+}
+
+.definition-content .signs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.definition-content .example-box {
+    margin-top: 20px;
+}
+
+/* Планшети */
+@media (max-width: 1000px) {
+    .definition-layout {
+        grid-template-columns: 0.7fr 1.3fr;
+        gap: 22px;
+    }
+
+    .definition-image-wrapper,
+    .definition-image {
+        min-height: 500px;
+    }
+}
+
+/* Телефони */
+@media (max-width: 750px) {
+    .definition-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .definition-image-wrapper,
+    .definition-image {
+        min-height: 280px;
+        max-height: 350px;
+    }
+
+    .definition-content .signs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .slide.conclusion-slide {
+        justify-content: center;
     }
 }
