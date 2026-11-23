@@ -108,27 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let touchStartX = 0;
     let touchEndX = 0;
 
-    document.addEventListener("touchstart", (event) => {
-        touchStartX = event.changedTouches[0].screenX;
-    }, { passive: true });
-
-    document.addEventListener("touchend", (event) => {
-        touchEndX = event.changedTouches[0].screenX;
-
-        const difference = touchStartX - touchEndX;
-        const threshold = 60;
-
-        if (Math.abs(difference) < threshold) {
-            return;
-        }
-
-        if (difference > 0) {
-            nextSlide();
-        } else {
-            prevSlide();
-        }
-    }, { passive: true });
-
     // Запускаємо презентацію
     showSlide(0);
 });
